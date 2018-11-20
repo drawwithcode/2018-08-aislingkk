@@ -1,11 +1,36 @@
-function preload(){
-  // put preload code here
-}
+var value = 0;
 
 function setup() {
-  // put setup code here
+  createCanvas(windowWidth,windowHeight);
+  setMoveThreshold(5);
 }
 
 function draw() {
-  // put drawing code here
+  background(0);
+  fill(value*10);
+  textAlign(CENTER);
+  textSize(30);
+  text('Shake Your Phone to See Pattern !',width/2,70);
+  noStroke();
+
+  for(var i=0;i<=height/100+3;i++){
+    for(var j=0;j<=width/100+3;j++){
+      var r = random(10);
+      if (r<5) {
+        fill(value,value,r*10,70);
+      } else {
+        fill(r*10,value,value,70);
+      }
+      ellipse(j*100,100*i,value);
+    }
+  }
+
+  if(value>450){
+    value=random(10);
+  }
+
+}
+
+function deviceMoved() {
+  value++;
 }
