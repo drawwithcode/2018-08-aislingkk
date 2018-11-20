@@ -7,7 +7,7 @@ function setup() {
 
 function draw() {
   background(0);
-  fill(value*10);
+  fill(255-value*10);
   textAlign(CENTER);
   textSize(30);
   text('Shake Your Phone to See Pattern !',width/2,70);
